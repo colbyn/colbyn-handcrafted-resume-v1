@@ -14,7 +14,7 @@
 )
 
 // #include "cover.typ"
-#include "cover-2.typ"
+#include "hero-intro.typ"
 #v(40pt)
 #include "cover-points.typ"
 
