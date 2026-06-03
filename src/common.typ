@@ -1,6 +1,6 @@
 #let page-margin = (
-  x: 0.5in,
-  y: 0.5in,
+  x: 0.45in,
+  y: 0.45in,
 )
 
 #let bleed-x(

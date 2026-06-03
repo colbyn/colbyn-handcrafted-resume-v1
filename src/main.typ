@@ -15,6 +15,7 @@
 
 // #include "cover.typ"
 #include "cover-2.typ"
+#v(40pt)
 #include "cover-points.typ"
 #include "timeline.typ"
 #include "freeform.typ"
