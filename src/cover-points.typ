@@ -15,6 +15,7 @@
 #let capability-outer-inset = 3pt
 #let capability-inner-inset = 8pt
 #let capability-stroke = 1.5pt
+#let deemphasize-fade = 70%
 
 #let capability-label-body(label, accent: capability-label-color) = text(
   size: 12pt,
@@ -26,8 +27,7 @@
 ]
 
 #let capability-label-box(label, height, accent: capability-label-color) = {
-  let fade = 70%
-  let body = capability-label-body(label, accent: accent.transparentize(fade))
+  let body = capability-label-body(label, accent: accent.transparentize(deemphasize-fade))
 
   let inner-height = (
     height - capability-outer-inset * 2
@@ -39,12 +39,12 @@
 
   box(
     height: height,
-    stroke: (capability-stroke + accent.transparentize(fade)),
+    stroke: (capability-stroke + accent.transparentize(deemphasize-fade)),
     inset: capability-outer-inset,
   )[
     #box(
       height: inner-height,
-      stroke: (capability-stroke + accent.transparentize(fade)),
+      stroke: (capability-stroke + accent.transparentize(deemphasize-fade)),
       inset: capability-inner-inset,
     )[
       #box(
@@ -114,14 +114,14 @@
       #block[
         #box(
           stroke: (
-            top: 0.5pt + accent,
-            bottom: 0.5pt + accent,
+            top: 0.5pt + accent.transparentize(deemphasize-fade),
+            bottom: 0.5pt + accent.transparentize(deemphasize-fade),
           ),
           inset: (x: 8pt, y: 8pt),
           width: 100%,
           [
             #align(left)[
-              #text(weight: 600, fill: accent, font: "Avenir Next", size: 12pt)[#item.title]
+              #text(weight: 600, fill: accent.transparentize(50%), font: "Avenir Next", size: 12pt)[#item.title]
             ]
           ]
         )
@@ -173,10 +173,10 @@
       ),
     )[
       #capability-tags((
-        "Application development",
-        "Automation",
-        "Data workflows",
-        "Tool integration",
+        "Alpha",
+        "Beta",
+        "Gamma",
+        "Delta",
       ))
     ]
 
@@ -205,10 +205,10 @@
       ),
     )[
       #capability-tags((
-        "Systems thinking",
-        "Workflow design",
-        "Technical architecture",
-        "Reliable execution",
+        "Alpha",
+        "Beta",
+        "Gamma",
+        "Delta",
       ))
     ]
 
@@ -236,10 +236,10 @@
       ),
     )[
       #capability-tags((
-        "Information design",
-        "UX judgment",
-        "Technical communication",
-        "Document systems",
+        "Alpha",
+        "Beta",
+        "Gamma",
+        "Delta",
       ))
     ]
 
@@ -267,10 +267,10 @@
       ),
     )[
       #capability-tags((
-        "Technical research",
-        "Lighting systems",
-        "Power distribution",
-        "Controls & optics",
+        "Alpha",
+        "Beta",
+        "Gamma",
+        "Delta",
       ))
     ]
 

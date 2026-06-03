@@ -17,6 +17,9 @@
 #include "cover-2.typ"
 #v(40pt)
 #include "cover-points.typ"
+
+#include "github.typ"
+
 #include "timeline.typ"
 #include "freeform.typ"
 #include "looking-ahead.typ"
