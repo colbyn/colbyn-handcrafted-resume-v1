@@ -26,8 +26,8 @@
   #upper(label)
 ]
 
-#let capability-label-box(label, height, accent: capability-label-color) = {
-  let body = capability-label-body(label, accent: accent.transparentize(deemphasize-fade))
+#let capability-label-box(label, height, accent: capability-label-color,) = {
+  let body = capability-label-body(label, accent: accent)
 
   let inner-height = (
     height - capability-outer-inset * 2
@@ -39,12 +39,12 @@
 
   box(
     height: height,
-    stroke: (capability-stroke + accent.transparentize(deemphasize-fade)),
+    stroke: (capability-stroke + accent),
     inset: capability-outer-inset,
   )[
     #box(
       height: inner-height,
-      stroke: (capability-stroke + accent.transparentize(deemphasize-fade)),
+      stroke: (capability-stroke + accent),
       inset: capability-inner-inset,
     )[
       #box(
@@ -59,7 +59,7 @@
   ]
 }
 
-#let capability-row(label, body, accent: capability-label-color) = layout(size => {
+#let capability-row(label, body, accent: capability-label-color, deemphasize-fade: deemphasize-fade) = layout(size => {
   let rail-total-width = (
     capability-rail-width + capability-inner-inset * 2 + capability-outer-inset * 2
   )
@@ -89,7 +89,7 @@
     columns: (rail-total-width, 1fr),
     column-gutter: capability-gutter,
     align: top,
-    capability-label-box(label, row-height, accent: accent),
+    capability-label-box(label, row-height, accent: accent.transparentize(deemphasize-fade)),
     box(
       width: content-width,
       height: row-height,

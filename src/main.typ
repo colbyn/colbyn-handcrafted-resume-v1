@@ -17,11 +17,12 @@
 #include "hero-intro.typ"
 #v(40pt)
 #include "cover-points.typ"
+#pagebreak()
 
-#include "github.typ"
+#include "history.typ"
 
-#include "timeline.typ"
-#include "freeform.typ"
-#include "looking-ahead.typ"
+// #include "timeline.typ"
+// #include "freeform.typ"
+// #include "looking-ahead.typ"
 // #include "lighting-example.typ"
 
