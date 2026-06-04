@@ -14,7 +14,18 @@
 #let capability-outer-inset = 2.5pt
 #let capability-inner-inset = 6pt
 #let capability-stroke = 1.2pt
-#let deemphasize-fade = 80%
+#let deemphasize-fade = 60%
+
+#let section-colors = (
+  rgb("#676563"),
+  rgb("#2828a9"),
+  rgb("#7300ff"),
+  rgb("#ff00c8"),
+  rgb("#00a6ff"),
+  rgb("#00a6ff"),
+)
+
+#let cycle-color(i) = section-colors.at(calc.rem(i, section-colors.len()))
 
 #let capability-label-body(label, accent: capability-label-color) = text(
   size: 10.5pt,
@@ -143,9 +154,8 @@
   ]
 ]
 
-#let software-section = [
-  #let accent = rgb("#676563")
-  #capability-row("Software", accent: accent)[
+#let sections = (
+  (accent) => capability-row("Software", accent: accent)[
     #capability-items(
       accent: accent,
       (
@@ -171,12 +181,8 @@
         "Reporting",
       ))
     ]
-  ]
-]
-
-#let systems-section = [
-  #let accent = rgb("#2828a9")
-  #capability-row("Systems", accent: accent)[
+  ],
+  (accent) => capability-row("Systems", accent: accent)[
     #capability-items(
       accent: accent,
       (
@@ -202,12 +208,8 @@
         "Operations",
       ))
     ]
-  ]
-]
-
-#let design-section = [
-  #let accent = rgb("#7300ff")
-  #capability-row("Design", accent: accent)[
+  ],
+  (accent) => capability-row("Design", accent: accent)[
     #capability-items(
       accent: accent,
       (
@@ -233,12 +235,8 @@
         "Diagrams",
       ))
     ]
-  ]
-]
-
-#let research-section = [
-  #let accent = rgb("#ff00c8")
-  #capability-row("Research", accent: accent)[
+  ],
+  (accent) => capability-row("Research", accent: accent)[
     #capability-items(
       accent: accent,
       (
@@ -264,12 +262,8 @@
         "Technical Writing",
       ))
     ]
-  ]
-]
-
-#let implementation-section = [
-  #let accent = rgb("#00a6ff")
-  #capability-row("Implementation", accent: accent)[
+  ],
+  (accent) => capability-row("Implementation", accent: accent)[
     #capability-items(
       accent: accent,
       (
@@ -295,12 +289,8 @@
         "Low Voltage",
       ))
     ]
-  ]
-]
-
-#let engagement-section = [
-  #let accent = rgb("#00a6ff")
-  #capability-row("Engagement", accent: accent)[
+  ],
+  (accent) => capability-row("Engagement", accent: accent)[
     #capability-items(
       accent: accent,
       (
@@ -326,19 +316,17 @@
         "Handoffs",
       ))
     ]
-  ]
-]
+  ],
+)
+
 
 #box(inset: 0pt)[
   #grid(
     columns: (1fr, 1fr),
     column-gutter: 24pt,
     row-gutter: 18pt,
-    software-section,
-    systems-section,
-    design-section,
-    research-section,
-    implementation-section,
-    engagement-section,
+    ..sections.enumerate().map(((i, f)) => {
+      f(cycle-color(i))
+    }),
   )
 ]

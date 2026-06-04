@@ -5,7 +5,6 @@
 
 #set page(
   background: [
-    #set par(justify: false)
     #place(
       center + horizon,
       [
@@ -21,7 +20,7 @@
   fill: rgb("#8787a0"),
   weight: 400,
 )
-#set par(spacing: 12pt, leading: 8pt, justify: true)
+#set par(spacing: 8pt, leading: 8pt, justify: false, hanging-indent: 10pt)
 
 #let keyword-cluster(title, body, spacing: 0pt) = [
   #heading(level: 2)[
@@ -34,7 +33,9 @@
     ]
   ]
   #v(spacing)
-  #body
+  #align(left)[
+    #body
+  ]
 ]
 
 #let sections = (
@@ -55,7 +56,34 @@
   ],
   keyword-cluster[Soft Skills & Competencies][
     Communication · active listening · relationship building · conflict resolution · negotiation · presentation skills · executive presence · self-directed · initiative · ownership mentality · accountability · adaptability · resilience · growth mindset · async communication · deadline-driven · detail-oriented · results-oriented · critical thinking · decision-making · prioritization · time management · problem-solving
-  ]
+  ],
+  keyword-cluster[History][
+    2014 : Summer Internship · Space Monkey · Decentralized P2P Cloud Computing · Infrastructure Provisioning · Systems Support \
+
+    2015 : CompTIA Operations Specialist · Galileo Processing · Data Center Buildout · Hardware Provisioning · Network Documentation · Incident Response · Uptime & Ops \
+    
+    2015-2016 : Founder & Lead Systems Engineer · Independent WISP · Wireless Infrastructure · Last-Mile Deployment · RF Planning · Field Installation · Client Acquisition · Routing & Switching \
+    
+    2016 : QA Engineer, Media Systems · UpLynk / Verizon Digital Media Services · Video Streaming Pipelines · Encoding & Transcoding · HLS · CDN Delivery · Python Tooling · Throughput Optimization \
+    
+    2017 : Prototyping & Tooling Engineer · Eimg Startup · Video Processing Tooling · Rapid Prototyping · Multimedia Workflow Automation \
+    
+    2018 : Independent Software Engineer & Language Designer · Compiler Design · DSL Implementation · Rust · Haskell · Open Source Tooling \
+    
+    2019 : Independent Imaging Systems Developer · Imager Project · Image Processing Pipelines · FFmpeg Integration · VMAF Quality Metrics · Rust · Node.js · Performance Optimization \
+    
+    2020 : CS Student & Research Assistant · UVU · Academic Research · CS Grader · Subscript Publishing Toolchain · Swift · iPad Application Development \
+    
+    2021 : Independent DevOps & Cloud Consultant · AMI Automation · AWS Infrastructure · CI/CD Pipelines · Rust Systems Programming \
+    
+    2022 : Independent Researcher & Systems Developer · University of Utah · Philosophy, Writing & Rhetoric · Parser Development · Publishing Systems · Rust · Swift · Technical Documentation \
+    
+    2023 : Software Engineer, Publishing Systems · Subscript Publishing · iOS & macOS Development · Digital Ink & Vector Graphics · Custom Language Design · Cross-Platform Architecture \
+    
+    2024 : Independent Systems Engineer · Parser Combinators & AST Tooling · Dataset Generation Pipelines · Rust · Swift · Data Architecture \
+    
+    2025-present : Principal Consultant, Systems & Integration · Static Web Compiler · Markdown Rendering · LED & Low-Voltage Systems · DALI-2 · PoE · Technical Writing · Architecture & Client Consulting \
+  ],
 )
 
 #page-kicker("For the machine. Not for the human.", accent: red)
@@ -65,25 +93,7 @@
 #v(10pt)
 
 #grid(
-  columns: (1fr, 1fr),
+  columns: (1fr,),
   gutter: 20pt,
   ..sections
 )
-
-#v(10pt)
-
-#keyword-cluster(spacing: 10pt)[History][
-  2014 · Summer Internship · Space Monkey · Decentralized P2P Cloud Computing · Infrastructure Provisioning · Systems Support \
-  2015 · CompTIA Operations Specialist · Galileo Processing · Data Center Buildout · Hardware Provisioning · Network Documentation · Incident Response · Uptime & Ops \
-  2015-2016 · Founder & Lead Systems Engineer · Independent WISP · Wireless Infrastructure · Last-Mile Deployment · RF Planning · Field Installation · Client Acquisition · Routing & Switching \
-  2016 · QA Engineer, Media Systems · UpLynk / Verizon Digital Media Services · Video Streaming Pipelines · Encoding & Transcoding · HLS · CDN Delivery · Python Tooling · Throughput Optimization \
-  2017 · Prototyping & Tooling Engineer · Eimg Startup · Video Processing Tooling · Rapid Prototyping · Multimedia Workflow Automation \
-  2018 · Independent Software Engineer & Language Designer · Compiler Design · DSL Implementation · Rust · Haskell · Open Source Tooling \
-  2019 · Independent Imaging Systems Developer · Imager Project · Image Processing Pipelines · FFmpeg Integration · VMAF Quality Metrics · Rust · Node.js · Performance Optimization \
-  2020 · CS Student & Research Assistant · UVU · Academic Research · CS Grader · Subscript Publishing Toolchain · Swift · iPad Application Development \
-  2021 · Independent DevOps & Cloud Consultant · AMI Automation · AWS Infrastructure · CI/CD Pipelines · Rust Systems Programming \
-  2022 · Independent Researcher & Systems Developer · University of Utah · Philosophy, Writing & Rhetoric · Parser Development · Publishing Systems · Rust · Swift · Technical Documentation \
-  2023 · Software Engineer, Publishing Systems · Subscript Publishing · iOS & macOS Development · Digital Ink & Vector Graphics · Custom Language Design · Cross-Platform Architecture \
-  2024 · Independent Systems Engineer · Parser Combinators & AST Tooling · Dataset Generation Pipelines · Rust · Swift · Data Architecture \
-  2025-present · Principal Consultant, Systems & Integration · Static Web Compiler · Markdown Rendering · LED & Low-Voltage Systems · DALI-2 · PoE · Technical Writing · Architecture & Client Consulting \
-]
