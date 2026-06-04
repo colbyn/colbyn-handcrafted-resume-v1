@@ -24,5 +24,5 @@
 // #include "timeline.typ"
 // #include "freeform.typ"
 // #include "looking-ahead.typ"
-// #include "lighting-example.typ"
+#include "lighting-example.typ"
 

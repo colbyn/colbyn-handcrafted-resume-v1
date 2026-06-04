@@ -1,24 +1,23 @@
 #import "common.typ": bleed-top, bleed-x
 // #import "cover-2.typ": ink
 
-
 #let ink = rgb("#10131a")
 #let hero-title-color = ink
 
-#set par(spacing: 10pt, leading: 0pt)
+#set par(spacing: 6pt, leading: 6pt)
 
 #let capability-label-color = rgb("#535353")
 #let capability-label-font = "Avenir"
 
-#let capability-rail-width = 12pt
+#let capability-rail-width = 11pt
 #let capability-gutter = 5pt
-#let capability-outer-inset = 3pt
-#let capability-inner-inset = 8pt
-#let capability-stroke = 1.5pt
-#let deemphasize-fade = 70%
+#let capability-outer-inset = 2.5pt
+#let capability-inner-inset = 6pt
+#let capability-stroke = 1.2pt
+#let deemphasize-fade = 72%
 
 #let capability-label-body(label, accent: capability-label-color) = text(
-  size: 12pt,
+  size: 10.5pt,
   font: capability-label-font,
   fill: accent,
   weight: 900,
@@ -26,7 +25,7 @@
   #upper(label)
 ]
 
-#let capability-label-box(label, height, accent: capability-label-color,) = {
+#let capability-label-box(label, height, accent: capability-label-color) = {
   let body = capability-label-body(label, accent: accent)
 
   let inner-height = (
@@ -71,18 +70,17 @@
   let label-body = capability-label-body(label, accent: accent)
 
   let left-height = (
-    measure(label-body).width + capability-outer-inset * 2 + capability-inner-inset * 2 + 6pt
+    measure(label-body).width + capability-outer-inset * 2 + capability-inner-inset * 2 + 5pt
   )
 
   let right-content = box(
     width: content-width,
-    inset: (y: 10pt),
+    inset: (y: 6pt),
   )[
     #body
   ]
 
   let right-height = measure(right-content).height
-
   let row-height = calc.max(left-height, right-height)
 
   grid(
@@ -93,64 +91,57 @@
     box(
       width: content-width,
       height: row-height,
-      inset: (y: 9pt),
+      inset: (y: 5pt),
     )[
       #body
     ],
   )
 })
 
-
-
 #let capability-items(items, accent: hero-title-color, extra-body) = {
-  set par(spacing: 10pt, justify: true)
+  set par(spacing: 6pt, justify: true)
   set align(left)
 
   grid(
     columns: (1fr,),
-    column-gutter: 8pt,
-    row-gutter: 8pt,
+    row-gutter: 5pt,
     ..items.map(item => [
       #block[
         #box(
           stroke: (
-            top: 0.5pt + accent.transparentize(deemphasize-fade),
-            bottom: 0.5pt + accent.transparentize(deemphasize-fade),
+            top: 0.45pt + accent.transparentize(deemphasize-fade),
+            bottom: 0.45pt + accent.transparentize(deemphasize-fade),
           ),
-          inset: (x: 8pt, y: 8pt),
+          inset: (x: 6pt, y: 5pt),
           width: 100%,
           [
             #align(left)[
-              #text(weight: 600, fill: accent.transparentize(50%), font: "Avenir Next", size: 12pt)[#item.title]
+              #text(weight: 700, fill: accent.transparentize(42%), font: "Avenir Next", size: 10.5pt)[#item.title]
             ]
           ]
         )
         #box(
-          // stroke: 0.5pt + accent,
-          inset: (x: 8pt, y: 8pt),
+          inset: (x: 6pt, y: 5pt),
           width: 100%,
         )[
-          // #v(2pt)
-          #set text(size: 9.2pt, fill: ink, font: "Avenir Next", weight: 400)
-          #set par(leading: 0.55em)
+          #set text(size: 8.45pt, fill: ink, font: "Avenir Next", weight: 400)
+          #set par(leading: 0.52em)
           #item.body
-
           #extra-body
         ]
       ]
-    ])
+    ]),
   )
 }
 
 #let capability-tags(tags) = [
-  #set par(leading: 5pt)
+  #set par(leading: 4pt)
   #align(center)[
-    #text(size: 8pt, fill: hero-title-color, weight: 500, font: "Avenir Next")[
+    #text(size: 7pt, fill: hero-title-color.transparentize(18%), weight: 600, font: "Avenir Next")[
       #tags.join("  ·  ")
     ]
   ]
 ]
-
 
 #let software-section = [
   #let accent = rgb("#676563")
@@ -159,59 +150,58 @@
       accent: accent,
       (
         (
-          title: [Lorem Ipsum Dollar Sum Import],
+          title: [Instrumented systems],
           body: [
-            Bonbon cupcake cake sweet roll apple pie chocolate carrot cake bears bears. Tiramisu jujubes jujubes carrot cake candy canes tootsie roll sweet roll shortbread.
+            Crawlers, pipelines, search indexes, reporting layers. Built around the actual data model: queryable; auditable; extendable.
           ],
         ),
         (
-          title: [Lorem Ipsum Dollar Sum Import],
+          title: [Workflow automation],
           body: [
-            Bonbon cupcake cake sweet roll apple pie chocolate carrot cake bears bears. Tiramisu jujubes jujubes carrot cake candy canes tootsie roll sweet roll shortbread.
+            Manual processes converted to defined pipelines: structured inputs, quality gates, clean handoffs.
           ],
         ),
       ),
     )[
       #capability-tags((
-        "Alpha",
-        "Beta",
-        "Gamma",
-        "Delta",
+        "Automation",
+        "Search",
+        "Data Pipelines",
+        "CLI",
+        "Reporting",
       ))
     ]
-
   ]
 ]
 
-
 #let systems-section = [
   #let accent = rgb("#2828a9")
-  #capability-row("Systemizing", accent: accent)[
+  #capability-row("Systems", accent: accent)[
     #capability-items(
       accent: accent,
       (
         (
-          title: [Lorem Ipsum Dollar Sum Import],
+          title: [Architecture before components],
           body: [
-            Bonbon cupcake cake sweet roll apple pie chocolate carrot cake bears bears. Tiramisu jujubes jujubes carrot cake candy canes tootsie roll sweet roll shortbread.
+            Topology, constraints, and failure modes defined first.
           ],
         ),
         (
-          title: [Lorem Ipsum Dollar Sum Import],
+          title: [Process formalization],
           body: [
-            Bonbon cupcake cake sweet roll apple pie chocolate carrot cake bears bears. Tiramisu jujubes jujubes carrot cake candy canes tootsie roll sweet roll shortbread.
+            Informal rules surfaced, named, and documented.
           ],
         ),
       ),
     )[
       #capability-tags((
-        "Alpha",
-        "Beta",
-        "Gamma",
-        "Delta",
+        "Topology",
+        "Process Design",
+        "Constraints",
+        "Documentation",
+        "Operations",
       ))
     ]
-
   ]
 ]
 
@@ -222,27 +212,27 @@
       accent: accent,
       (
         (
-          title: [Lorem Ipsum Dollar Sum Import],
+          title: [DC lighting architecture],
           body: [
-            Bonbon cupcake cake sweet roll apple pie chocolate carrot cake bears bears. Tiramisu jujubes jujubes carrot cake candy canes tootsie roll sweet roll shortbread.
+            Distribution layout, driver selection, control protocol, dimming behavior, serviceability.
           ],
         ),
         (
-          title: [Lorem Ipsum Dollar Sum Import],
+          title: [Technical publication],
           body: [
-            Bonbon cupcake cake sweet roll apple pie chocolate carrot cake bears bears. Tiramisu jujubes jujubes carrot cake candy canes tootsie roll sweet roll shortbread.
+            Specifications, diagrams, and installation logic precise enough to build from. (Clear enough to hand to a non-specialist without a walkthrough.)
           ],
         ),
       ),
     )[
       #capability-tags((
-        "Alpha",
-        "Beta",
-        "Gamma",
-        "Delta",
+        "Low Voltage",
+        "DC Distribution",
+        "Typst",
+        "Specification",
+        "Diagrams",
       ))
     ]
-
   ]
 ]
 
@@ -253,38 +243,102 @@
       accent: accent,
       (
         (
-          title: [Lorem Ipsum Dollar Sum Import],
+          title: [Primary source analysis],
           body: [
-            Bonbon cupcake cake sweet roll apple pie chocolate carrot cake bears bears. Tiramisu jujubes jujubes carrot cake candy canes tootsie roll sweet roll shortbread.
+            Datasheets, standards, supplier catalogs, field constraints. 
           ],
         ),
         (
-          title: [Lorem Ipsum Dollar Sum Import],
+          title: [Actionable synthesis],
           body: [
-            Bonbon cupcake cake sweet roll apple pie chocolate carrot cake bears bears. Tiramisu jujubes jujubes carrot cake candy canes tootsie roll sweet roll shortbread.
+            Gap between specification and real installation conditions: identified, closed, documented.
           ],
         ),
       ),
     )[
       #capability-tags((
-        "Alpha",
-        "Beta",
-        "Gamma",
-        "Delta",
+        "Standards",
+        "Supply Chain",
+        "Specs",
+        "Field Constraints",
+        "Technical Writing",
       ))
     ]
-
   ]
 ]
 
-#box(inset: 00pt)[
+#let implementation-section = [
+  #let accent = rgb("#00a6ff")
+  #capability-row("Implementation", accent: accent)[
+    #capability-items(
+      accent: accent,
+      (
+        (
+          title: [Full-cycle execution],
+          body: [
+            Layout, sourcing, commissioning, verification — without coordination loss from splitting phases across specialists who don't share a system model.
+          ],
+        ),
+        (
+          title: [Constraint-driven prototyping],
+          body: [
+            Early builds targeting the hard problem: thermal behavior, dimming continuity, distribution loss, control latency. Constraint solved before the system is committed.
+          ],
+        ),
+      ),
+    )[
+      #capability-tags((
+        "Installation",
+        "Commissioning",
+        "Prototyping",
+        "Verification",
+        "Low Voltage",
+      ))
+    ]
+  ]
+]
+
+#let engagement-section = [
+  #let accent = rgb("#00a6ff")
+  #capability-row("Engagement", accent: accent)[
+    #capability-items(
+      accent: accent,
+      (
+        (
+          title: [Where this applies],
+          body: [
+            Architecture undecided. Requirements rough. Existing system producing inconsistent results with no clear cause. That's the entry point.
+          ],
+        ),
+        (
+          title: [What it produces],
+          body: [
+            A system with a defensible logic — documented, sourceable, buildable, and maintainable by someone other than the original designer.
+          ],
+        ),
+      ),
+    )[
+      #capability-tags((
+        "Systems Thinking",
+        "Ambiguity",
+        "Technical Depth",
+        "Documentation",
+        "Handoffs",
+      ))
+    ]
+  ]
+]
+
+#box(inset: 0pt)[
   #grid(
     columns: (1fr, 1fr),
-    column-gutter: 40pt,
-    row-gutter: 40pt,
+    column-gutter: 24pt,
+    row-gutter: 18pt,
     software-section,
     systems-section,
     design-section,
     research-section,
+    implementation-section,
+    engagement-section,
   )
 ]
