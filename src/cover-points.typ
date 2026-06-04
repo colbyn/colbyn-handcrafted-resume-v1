@@ -14,15 +14,17 @@
 #let capability-outer-inset = 2.5pt
 #let capability-inner-inset = 6pt
 #let capability-stroke = 1.2pt
-#let deemphasize-fade = 60%
+#let deemphasize-fade = 000%
 
 #let section-colors = (
-  rgb("#676563"),
-  rgb("#2828a9"),
-  rgb("#7300ff"),
-  rgb("#ff00c8"),
-  rgb("#00a6ff"),
-  rgb("#00a6ff"),
+  rgb("#b57f93"),
+  rgb("#a483b5"),
+
+  rgb("#6583a5"),
+  rgb("#8286a5"),
+
+  rgb("#e28799"),
+  rgb("#e27caa"),
 )
 
 #let cycle-color(i) = section-colors.at(calc.rem(i, section-colors.len()))
@@ -127,7 +129,7 @@
           width: 100%,
           [
             #align(left)[
-              #text(weight: 700, fill: accent.transparentize(42%), font: "Avenir Next", size: 10.5pt)[#item.title]
+              #text(weight: 700, fill: accent.transparentize(0%), font: "Avenir Next", size: 10.5pt)[#item.title]
             ]
           ]
         )
