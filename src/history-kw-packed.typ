@@ -4,24 +4,12 @@
 #import "common.typ": page-kicker
 
 #set page(
-  // paper: "us-letter",
-  // margin: (
-  //   x: 0.20in,
-  //   y: 0.20in,
-  // ),
-  // flipped: true,
   background: [
     #set par(justify: false)
     #place(
       center + horizon,
-      rotate(35deg)[
-        #text(
-          size: 72pt,
-          fill: rgb("#000000").transparentize(80%),
-          weight: "bold",
-          stretch: 200%,
-          tracking: 10pt,
-        )[NOT FOR HUMANS]
+      [
+        #image("../assets/watermark.png")
       ],
     )
   ],

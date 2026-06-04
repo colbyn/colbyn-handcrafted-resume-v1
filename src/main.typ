@@ -29,5 +29,5 @@
 // #include "looking-ahead.typ"
 
 // REFERENCE
-// #include "lighting-example.typ"
+#include "lighting-example.typ"
 
