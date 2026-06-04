@@ -14,7 +14,7 @@
 #let capability-outer-inset = 2.5pt
 #let capability-inner-inset = 6pt
 #let capability-stroke = 1.2pt
-#let deemphasize-fade = 72%
+#let deemphasize-fade = 80%
 
 #let capability-label-body(label, accent: capability-label-color) = text(
   size: 10.5pt,
