@@ -194,7 +194,7 @@
 
         [
           #align(right)[
-            // TODO
+            Contractor, Independent
           ]
         ],
       )
