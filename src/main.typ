@@ -21,8 +21,13 @@
 
 #include "history.typ"
 
+#include "history-kw-packed.typ"
+
+// OLD
 // #include "timeline.typ"
 // #include "freeform.typ"
 // #include "looking-ahead.typ"
-#include "lighting-example.typ"
+
+// REFERENCE
+// #include "lighting-example.typ"
 
