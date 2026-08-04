@@ -1,0 +1,35 @@
+#import "common.typ": page-margin
+
+#set document(
+  title: "Colbyn's Resume",
+  author: "Colbyn Wadman",
+)
+
+#set page(
+  // paper: "us-letter",
+  width: 8.5in,
+  height: auto,
+  margin: (
+    x: page-margin.x,
+    y: page-margin.y,
+  ),
+)
+
+// #include "cover.typ"
+#include "hero-intro.typ"
+#v(40pt)
+#include "cover-points.typ"
+// #pagebreak()
+
+#include "history.typ"
+
+// #include "history-kw-packed.typ"
+
+// OLD
+// #include "timeline.typ"
+// #include "freeform.typ"
+// #include "looking-ahead.typ"
+
+// REFERENCE
+// #include "lighting-example.typ"
+

@@ -188,7 +188,7 @@
 
         [
           #align(left)[
-            Salt Lake City, Utah
+            SLC, Utah (Open To Moving)
           ]
         ],
 
